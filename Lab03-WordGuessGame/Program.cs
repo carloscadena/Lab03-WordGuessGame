@@ -11,7 +11,9 @@ namespace Lab03_WordGuessGame
             Console.WriteLine("Hello World!");
             CreateWordList(path);
             ReadWordsFromFile(path);
-            AddNewWord(path);
+            AddNewWord(path, "blahblahblah");
+            AddNewWord(path, "something new");
+            DeleteWordFromFile(path, "something new");
         }
         //static void UserMenu()
         //{
@@ -66,15 +68,39 @@ namespace Lab03_WordGuessGame
                 throw;
             }
         }
-        static void AddNewWord(string path)
+        static void AddNewWord(string path, string newWord)
         {
             try
             {
                 using (StreamWriter sw = File.AppendText(path))
                 {
-                    for (int i = 1; i < 6; i++)
+                    sw.WriteLine(newWord);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        static void DeleteWordFromFile(string path, string lineToRemove)
+        {
+            // needs some error handling
+            string[] currentWords = ReadWordsFromFile(path);
+            string[] newWords = new string[currentWords.Length - 1];
+            for (int i = 0; i < currentWords.Length; i++)
+            {
+                if (lineToRemove != currentWords[i])
+                {
+                    newWords[i] = currentWords[i]; 
+                }
+            }
+            try
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    for (int i = 0; i < newWords.Length; i++)
                     {
-                        sw.WriteLine(i);
+                        sw.WriteLine(newWords[i]);
                     }
                 }
             }
@@ -83,6 +109,5 @@ namespace Lab03_WordGuessGame
                 throw;
             }
         }
-        
     }
 }
