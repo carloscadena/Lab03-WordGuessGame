@@ -9,8 +9,9 @@ namespace Lab03_WordGuessGame
         {
             string path = "../../../wordlist.txt";
             Console.WriteLine("Hello World!");
-            CreateFile(path);
-            ReadFile(path);
+            CreateWordList(path);
+            ReadWordsFromFile(path);
+            AddNewWord(path);
         }
         //static void UserMenu()
         //{
@@ -20,7 +21,7 @@ namespace Lab03_WordGuessGame
         //    Console.WriteLine("2) Admin");
         //    Console.WriteLine("3) Exit");
         //}
-        static void CreateFile(string path)
+        static void CreateWordList(string path)
         {
             try
             {
@@ -32,7 +33,6 @@ namespace Lab03_WordGuessGame
                     }
                     catch (Exception)
                     {
-
                         throw;
                     }
                     finally
@@ -43,7 +43,6 @@ namespace Lab03_WordGuessGame
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
@@ -51,7 +50,7 @@ namespace Lab03_WordGuessGame
                 // Close the file
             }
         }
-        static string[] ReadFile(string path)
+        static string[] ReadWordsFromFile(string path)
         {
             try
             {
@@ -64,9 +63,26 @@ namespace Lab03_WordGuessGame
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+        static void AddNewWord(string path)
+        {
+            try
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    for (int i = 1; i < 6; i++)
+                    {
+                        sw.WriteLine(i);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
     }
 }
