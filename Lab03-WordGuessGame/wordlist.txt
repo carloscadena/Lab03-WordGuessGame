@@ -1,3 +1,11 @@
-Hi hello how are youblahblahblah
-something new
-Hi hello how are youblahblahblah
+Here is your list of words:
+chocolate
+seattle
+codefellows
+city
+Here is your list of words:
+chocolate
+seattle
+codefellows
+bing
+hololens
