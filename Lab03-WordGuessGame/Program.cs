@@ -192,7 +192,7 @@ namespace Lab03_WordGuessGame
                 {
                     try
                     {
-                        sw.Write("Here is your list of words:\n");
+                        sw.Write("software\n");
                     }
                     catch (Exception)
                     {
@@ -261,6 +261,7 @@ namespace Lab03_WordGuessGame
             }
             try
             {
+                File.WriteAllText(path, "");
                 using (StreamWriter sw = File.AppendText(path))
                 {
                     for (int i = 0; i < newWords.Length; i++)
