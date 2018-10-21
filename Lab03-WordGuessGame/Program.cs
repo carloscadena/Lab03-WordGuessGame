@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Lab03_WordGuessGame
 {
-    class Program
+    public class Program
     {
         public static string path = "../../../wordlist.txt";
         static void Main(string[] args)
@@ -184,7 +184,7 @@ namespace Lab03_WordGuessGame
             }
         }
 
-        static void CreateWordList(string path)
+        public static void CreateWordList(string path)
         {
             try
             {
@@ -213,7 +213,7 @@ namespace Lab03_WordGuessGame
                 // Close the file
             }
         }
-        static string[] ReadWordsFromFile(string path)
+        public static string[] ReadWordsFromFile(string path)
         {
             try
             {
@@ -232,7 +232,7 @@ namespace Lab03_WordGuessGame
                     Console.WriteLine(words[i]);
                 }
 }
-        static void AddNewWord(string path, string newWord)
+        public static void AddNewWord(string path, string newWord)
         {
             try
             {
